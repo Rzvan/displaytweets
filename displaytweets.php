@@ -608,10 +608,12 @@ class DisplayTweets {
                 if ( $link_date )
                     $posted_since = "<a href=\"https://twitter.com/{$tweet->user->screen_name}/status/{$tweet->id_str}\">{$posted_since}</a>";
 
-                /** Print tweet */
-                echo "<p>{$this->format_tweet( $tweet->text )}<br /><small class=\"muted\">- {$posted_since}</small></p>";
+                ?>
 
-            endif;
+               <?php  /** Print tweet */ ?>
+		<a class="screenname" target="_blank" href="https://twitter.com/<?php echo "{$this->format_tweet($tweet->user->screen_name)}"; ?>">@<?php echo "{$this->format_tweet($tweet->user->screen_name)}"; ?></a>
+                <p><?php echo "{$this->format_tweet( $tweet->text )}"; ?><br /> <small class="muted"><?php echo "{$posted_since}"; ?></small></p>
+<?php   endif;
         }
 
     }
